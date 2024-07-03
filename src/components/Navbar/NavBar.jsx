@@ -2,8 +2,8 @@ import user from "./../../img/User.svg"
 import time from "./../../img/Time.svg"
 import basket from "./../../img/basket.svg"
 import exit from "./../../img/Exit.svg"
-import './NavBar.css'
-const NavBar =() => (
+import "./NavBar.css"
+const NavBar = () => (
 	<>
 		<nav>
 			<div className='container'>
@@ -37,4 +37,4 @@ const NavBar =() => (
 	</>
 )
 
-export default NavBar
+export { NavBar }

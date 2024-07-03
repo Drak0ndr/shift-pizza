@@ -1,5 +1,5 @@
 import { useState } from "react"
-import SupplementCard from "../SupplementCard/SupplementCard"
+import { SupplementCard } from "../SupplementCard/SupplementCard"
 import './PizzaModal.css'
 
 const PizzaModal = ({ active, setActive, data }) => {
@@ -39,4 +39,4 @@ const PizzaModal = ({ active, setActive, data }) => {
 
 }
 
-export default PizzaModal
+export { PizzaModal }

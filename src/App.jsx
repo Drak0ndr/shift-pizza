@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import NavBar from './components/Navbar/NavBar'
-import Main from './components/Main/Main'
-import PizzaModal from './components/PizzaModal/PizzaModal'
+import { NavBar } from './components/Navbar/NavBar'
+import { PizzaModal } from './components/PizzaModal/PizzaModal'
 import './App.css'
+import { Main } from './components/Main/Main'
 const App = () => {
 	const [modalActive, setModalActive] = useState(false)
 	const [modalData, setModalData] = useState({ toppings: [] })
