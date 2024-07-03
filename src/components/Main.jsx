@@ -4,7 +4,7 @@ import PizzaCard from "./PizzaCard"
 
 
 
-function Main() {
+function Main({setModalActive, setModalData}) {
     const [pizzas, setPizzas] = useState([])
 
     async function getPizzas() {
@@ -23,7 +23,7 @@ function Main() {
         <main>
             <div className="container">
                 {pizzas.map((pizza) => {
-                   return <PizzaCard img = {"https://shift-backend.onrender.com" + pizza.img} title = {pizza.name} description = {pizza.description} minCost = {pizza.sizes[0].price}/>
+                   return <PizzaCard setModalData={setModalData} setModalActive={setModalActive} key = {pizza.id} img = {"https://shift-backend.onrender.com" + pizza.img} title = {pizza.name} description = {pizza.description} minCost = {pizza.sizes[0].price} toppings={pizza.toppings}/>
                 })}
             </div>
         </main>
