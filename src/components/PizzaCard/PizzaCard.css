@@ -1,0 +1,51 @@
+main .pizza_card {
+    width: 298px;
+    margin: 48px 0px;
+  }
+  .pizza_card img {
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .pizza_card .title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 120%;
+    margin-top: 24px;
+    margin-bottom: 8px;
+    color: #292929;
+  }
+  
+  .pizza_card .description {
+    font-size: 16px;
+    line-height: 150%;
+    margin-top: 0;
+    margin-bottom: 32px;
+    color: #535353;
+    height: 72px;
+  }
+  
+  .pizza_card .price {
+    margin-top: 0px;
+    margin-bottom: 24px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 120%;
+    color: #292929;
+  }
+  
+  .pizza_card .button {
+    border-radius: 16px;
+    padding: 16px 32px;
+    width: 298px;
+    height: 56px;
+    background-color: #f4511e;
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #fff;
+    border:none;
+  }

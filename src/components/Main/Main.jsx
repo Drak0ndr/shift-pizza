@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react"
-import cheesePizza from "../img/Сырная.png"
-import PizzaCard from "./PizzaCard"
+import PizzaCard from "./../PizzaCard/PizzaCard"
+import siteUrl from "../consts"
+import './Main.css'
 
-
-
-function Main({setModalActive, setModalData}) {
+const Main = ({setModalActive, setModalData}) => {
     const [pizzas, setPizzas] = useState([])
 
     async function getPizzas() {
@@ -19,12 +18,13 @@ function Main({setModalActive, setModalData}) {
     useEffect(() => {
         getPizzas()
     }, [])
+
     return(
         <main>
             <div className="container">
-                {pizzas.map((pizza) => {
-                   return <PizzaCard setModalData={setModalData} setModalActive={setModalActive} key = {pizza.id} img = {"https://shift-backend.onrender.com" + pizza.img} title = {pizza.name} description = {pizza.description} minCost = {pizza.sizes[0].price} toppings={pizza.toppings}/>
-                })}
+                {pizzas.map((pizza) => (
+                    <PizzaCard setModalData={setModalData} setModalActive={setModalActive} key = {pizza.id} img = {siteUrl + pizza.img} title = {pizza.name} description = {pizza.description} minCost = {pizza.sizes[0].price} toppings={pizza.toppings}/>
+                ))}
             </div>
         </main>
     )
