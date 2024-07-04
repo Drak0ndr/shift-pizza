@@ -1,49 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+}
 .container {
   width: 960px;
   margin: 0 auto;
-}
-
-.logo {
-  background-image: url('img/logo.svg');
-  height: 39px;
-  width: 102px;
-  margin-right: 32px;
-}
-nav {
-  margin: 24px 0px;
-}
-nav .container {
-  display:  flex;
-  align-items: center;
-}
-nav .links {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-}
-nav .links div{
-  display: flex;
-}
-nav .link {
-  font-size: 16px;
-  color: #344051;
-  font-weight: 500;
-  font-family: "Roboto", sans-serif;
-  display: flex;
-  align-items:center;
-  margin-right: 32px;
-}
-nav .link:nth-child(2n) {
-  margin-right: 0px;
-}
-
-nav .link svg {
-  margin-right: 16px;
-}
-
-hr {
-  border: none;
-  background-color: #ced2da;
-  color: #ced2da;
-  height: 1px !important;
 }

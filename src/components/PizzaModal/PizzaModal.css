@@ -1,0 +1,128 @@
+.pizza_modal_bg {
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    display: none;
+    justify-content: center;
+    align-items:center;
+  }
+
+  .pizza_modal_bg.active{
+    display: flex;
+  }
+
+  .pizza_modal {
+    width: 806px;
+    height: 644px;
+    background-color:white;
+    border-radius: 10px;
+    position: relative;
+  }
+
+  .pizza_modal .close {
+    height: 24px;
+    width: 24px;
+    background-image:url("./../../img/close.svg");
+    position: absolute;
+    top:16px;
+    right: 24px;
+  }
+
+  .pizza_modal .content {
+    padding: 24px 64px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .pizza_modal img{
+    width: 220px;
+    height: 220px;
+  }
+  .pizza_modal .order {
+    width: 426px;
+  
+  }
+  .pizza_modal .title {
+    margin-top: 0;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 133%;
+    color: #292929;
+  }
+  
+  .pizza_modal .description {
+    font-size: 14px;
+    line-height: 143%;
+    color: #535353;
+  }
+  
+  .pizza_modal .compaund {
+    font-size: 16px;
+    line-height: 150%;
+    color: #535353;
+  }
+  
+  .pizza_modal .sizes {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    display: flex;
+    padding: 2px;
+  }
+  
+  .pizza_modal .size {
+    padding: 10px 16px;
+    width: 130px;
+    font-size: 14px;
+    line-height: 143%;
+    text-align: center;
+    color: #141c24;
+    border-radius: 14px;
+    
+  }
+  
+  .pizza_modal .size_active {
+    background-color: white;
+  }
+  
+  .pizza_modal .add {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #292929;
+  }
+
+  .pizza_modal .choise {
+    max-height: 492px;
+    padding: 0 5px 0 15px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+
+  .pizza_modal .button {
+    border-radius: 16px;
+    padding: 16px 32px;
+    width: 426px;
+    height: 56px;
+    background: #f4511e;
+    margin-top: 24px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #fff;
+    text-align: center;
+    border:none;
+  }
+
+  .supplements {
+    display: flex;
+    height: 236px;
+    flex-wrap: wrap;
+    column-gap: 11px;
+    row-gap: 11px;
+  }

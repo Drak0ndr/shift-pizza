@@ -1,0 +1,29 @@
+.supplement_card {
+    border-radius: 16px;
+    padding: 8px;
+    box-shadow: 0 4px 12px 0 rgba(26, 26, 30, 0.15);
+    height: 192px;
+  }
+  
+  .pizza_modal .supplement_card img {
+    width: 108px;
+    height: 108px;
+  }
+  
+  .pizza_modal .supplement_card .title {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 133%;
+    text-align: center;
+    color: #292929;
+    margin-top: 12px;
+  }
+  
+  .pizza_modal .supplement_card .price {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 143%;
+    text-align: center;
+    color: #292929;
+    margin-bottom: 0;
+  }
