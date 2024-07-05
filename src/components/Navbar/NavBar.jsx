@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom"
 import user from "./../../img/User.svg"
 import time from "./../../img/Time.svg"
 import basket from "./../../img/basket.svg"
@@ -7,8 +8,10 @@ const NavBar = () => (
 	<>
 		<nav>
 			<div className='container'>
-				<div className="logo">
-				</div>
+				<NavLink to="/">
+					<div className="logo"></div>
+				</NavLink>
+				
 				<div className="links">
 					<div>
 						<div className="link">
@@ -21,10 +24,12 @@ const NavBar = () => (
 						</div>
 					</div>
 					<div>
-						<div className="link">
-							<img src={basket} alt="" />
-							Корзина
-						</div>
+						<NavLink to="/basket">
+							<div className="link">
+								<img src={basket} alt="" />
+								Корзина
+							</div>
+						</NavLink>
 						<div className="link">
 							<img src={exit} alt="" />
 							Выйти

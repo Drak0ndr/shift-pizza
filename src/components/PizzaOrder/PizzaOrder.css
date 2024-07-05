@@ -1,0 +1,85 @@
+.pizza_order {
+    display: flex;
+    margin-top: 24px;
+    column-gap: 24px;
+    align-items: center;
+    width: 1015px;
+    position: relative;
+}
+
+.pizza_order img {
+    width: 63px;
+    height: 63px;
+}
+
+.pizza_order .title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #141c24;
+    width: 120px;
+}
+
+.pizza_order .description {
+    font-size: 14px;
+    line-height: 143%;
+    color: #141c24;
+    width: 280px;
+}
+.pizza_order .number {
+    display: flex;
+    overflow: hidden;
+    border-radius:14px;
+    margin-right: 24px;
+
+}
+.pizza_order .number button {
+    width: 33px;
+    padding: 0;
+    height: 48px;
+    font-size: 14px;
+    line-height: 143%;
+    text-align: center;
+    color: #141c24;
+    background: #f3f4f6;
+    border-radius: 0;
+}
+
+.pizza_order .number .count {
+    text-align: center;
+    background: #f3f4f6;
+    width: 34px;
+    font-size: 14px;
+    line-height: 143%;
+    color: #141c24;
+    border: none;
+    outline: none;
+}
+
+.number input[type="number"]::-webkit-outer-spin-button,
+.number input[type="number"]::-webkit-inner-spin-button {
+	display: none;
+}
+
+.pizza_order .edit {
+    font-size: 12px;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: #97a1af;
+    width: 100px;
+}
+
+.pizza_order .cost {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #141c24;
+    width: 160px;
+}
+
+.pizza_order .delete {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 0px;
+}

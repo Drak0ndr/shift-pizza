@@ -28,6 +28,9 @@
     align-items:center;
     margin-right: 32px;
   }
+  nav a {
+    text-decoration: none;
+  }
   nav .link:nth-child(2n) {
     margin-right: 0px;
   }
