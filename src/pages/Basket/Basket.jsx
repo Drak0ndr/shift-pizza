@@ -37,7 +37,7 @@ const Basket = ({ basketData, setBasketData }) => {
                     </div>
                 </div>
             </div>
-            {/* <PizzaEditModal active={modalActive} setActive={setModalActive} basketData={basketData} setBasketData={setBasketData} id={modalId}/> */}
+            <PizzaEditModal active={modalActive} setActive={setModalActive} basketData={basketData} setBasketData={setBasketData} id={modalId}/>
         </>
 
     )

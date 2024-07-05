@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { backendUrl } from '../consts'
 import './SupplementCard.css'
 
-const SupplementCard = ({ title, cost, img,data,setData, cardActive}) => {
-    const [active, setActive] = useState(false)
+const SupplementCard = ({ title, cost, img,data,setData, cardActive, reset}) => {
+    const [active, setActive] = useState(cardActive)
     const toggleActive = () => {
         if(active) {
             setActive(false)
@@ -17,12 +17,13 @@ const SupplementCard = ({ title, cost, img,data,setData, cardActive}) => {
             setActive(true)
             let temp = data
             temp.push({name:title, cost:cost, img:img})
-            // setData(temp)
+            setData(temp)
         }
     }
     useEffect(() => {
-        setActive(false)
-    }, [cardActive])
+        setActive(cardActive)
+        console.log(title, "render")
+    }, [reset, cardActive])
     return(
         <div className={active ? "supplement_card supplement_active" : "supplement_card"} onClick={toggleActive}>
             <img src={backendUrl + img} alt="" />

@@ -25,12 +25,12 @@ const PizzaModal = ({ active, setActive, data, basketData, setBasketData}) => {
                             <p className="add">Добавить по вкусу</p>
                             <div className="supplements">
                                 {data.toppings.map((item, index) => (
-                                    <SupplementCard key={index} img={item.img} title={item.name} cost={item.cost} data={activeSupplements} setData={setActiveSupplements} cardActive={active}/>
+                                    <SupplementCard key={index} img={item.img} title={item.name} cost={item.cost} data={activeSupplements} setData={setActiveSupplements} cardActive={false} reset={active}/>
                                 ))}
 
                             </div>
                         </div>
-                        <button className="button" onClick={() => { let temp = JSON.parse(JSON.stringify(basketData)); temp.push({id:data.id ,img:data.img, name:data.title, description:data.descr, size:data.sizes[activeSize], doughs:data.doughs[0], toppings:activeSupplements, count:1, allToppings:data.toppings});setBasketData(temp); console.log(temp);setActive(false);setActiveSupplements([]);setActiveSize(0)}}>Добавить в корзину</button>
+                        <button className="button" onClick={() => { let temp = JSON.parse(JSON.stringify(basketData)); temp.push({id:data.id ,img:data.img, name:data.title, description:data.descr, size:data.sizes[activeSize], doughs:data.doughs[0], toppings:activeSupplements, count:1, allToppings:data.toppings, allSizes:data.sizes});setBasketData(temp); console.log(temp);setActive(false);setActiveSupplements([]);setActiveSize(0)}}>Добавить в корзину</button>
                     </div>
 
                 </div>
