@@ -12,13 +12,15 @@ const OrderForm = ({orderData, setOrderData}) => {
     const [surnameDirty, setSurnameDirty] = useState(false)
     const [nameDirty, setNameDirty] = useState(false)
     const [phoneDirty, setPhoneDirty] = useState(false)
+
+    orderData.receiverAddress = {street: " ", house: " ", apartment: " ", comment: " "}
     const surnameHandler = e => {
         setSurname(e.target.value)
-        orderData.person.lastName = e.target.value
+        orderData.person.lastname = e.target.value
     }
     const nameHandler = e => {
         setName(e.target.value)
-        orderData.person.firtsName = e.target.value
+        orderData.person.firstname = e.target.value
     }
     const phoneHandler = e => {
         setPhone(e.target.value)

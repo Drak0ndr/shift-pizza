@@ -6,7 +6,7 @@ import './Main.css'
 const Main = ({ setModalActive, setModalData }) => {
     const [pizzas, setPizzas] = useState([])
 
-    async function getPizzas() {
+     const getPizzas = async () => {
         const response = await fetch(
             "https://shift-backend.onrender.com/pizza/catalog"
         ).then((response) => response.json())

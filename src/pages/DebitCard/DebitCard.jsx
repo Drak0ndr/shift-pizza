@@ -27,6 +27,21 @@ const DebitCard = ({orderData, setOrderData, setModalActive}) => {
         }
         return "black"
     }
+
+    const payment = async (data) => {
+        const responce = await fetch("https://shift-backend.onrender.com/pizza/payment", {
+            method: "Post",
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(data)
+        }).then((response) => response.json())
+        console.log(responce)
+
+        if (responce.success) {
+            setModalActive(true)
+        }
+    }
     return (
         <div className="debit_card">
             <div className="container">
@@ -47,7 +62,7 @@ const DebitCard = ({orderData, setOrderData, setModalActive}) => {
                         </div>
                     </div>
                 </div>
-                <button disabled= {number=="" || validity == "" || cvv==""} onClick={() => {setOrderData(orderData);setModalActive(true)}}>Оплатить</button>
+                <button disabled= {number=="" || validity == "" || cvv==""} onClick={() => {setOrderData(orderData); payment(orderData)}}>Оплатить</button>
             </div>
             
         </div>
