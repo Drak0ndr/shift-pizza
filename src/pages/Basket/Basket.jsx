@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react'
 import { PizzaOrder } from '../../components/PizzaOrder/PizzaOrder'
 import './Basket.css'
 import { PizzaEditModal } from '../../components/PizzaEditModal/PizzaEditModal.jsx'
+import { NavLink } from 'react-router-dom'
 
-const Basket = ({ basketData, setBasketData }) => {
+const Basket = ({ basketData, setBasketData, orderData, setOrderData}) => {
     const [dataLength, setDataLength] = useState(basketData.length)
     const [cost, setCost] = useState(0)
     const [modalActive, setModalActive] = useState(false)
@@ -18,6 +19,8 @@ const Basket = ({ basketData, setBasketData }) => {
         })
         setCost(ans)
         // console.log(ans)
+        orderData.pizzas = basketData
+        setOrderData(orderData)
     }
     setInterval(() => {
         calcCost()
@@ -33,7 +36,9 @@ const Basket = ({ basketData, setBasketData }) => {
                     </div>
                     <div className="total">
                         <p className="cost">Стоимость заказа: {cost} р</p>
-                        <button>Оформить заказ</button>
+                        <NavLink to={"/orderForm"}>
+                            <button>Оформить заказ</button>
+                        </NavLink>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 .basket .total {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .basket .total .cost {
