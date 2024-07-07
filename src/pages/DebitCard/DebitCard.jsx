@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./DebitCard.css";
 
-const DebitCard = ({orderData, setOrderData}) => {
+const DebitCard = ({orderData, setOrderData, setModalActive}) => {
     const [number, setNumber] = useState("")
     const [validity, setValidity] = useState("")
     const [cvv, setCvv] = useState("")
@@ -47,7 +47,7 @@ const DebitCard = ({orderData, setOrderData}) => {
                         </div>
                     </div>
                 </div>
-                <button disabled= {number=="" || validity == "" || cvv==""} onClick={() => {setOrderData(orderData);console.log(orderData)}}>Оплатить</button>
+                <button disabled= {number=="" || validity == "" || cvv==""} onClick={() => {setOrderData(orderData);setModalActive(true)}}>Оплатить</button>
             </div>
             
         </div>

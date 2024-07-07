@@ -7,11 +7,13 @@ import { Main } from './pages/Main/Main'
 import { Basket } from './pages/Basket/Basket';
 import { OrderForm } from './pages/OrderForm/OrderForm';
 import { DebitCard } from './pages/DebitCard/DebitCard';
+import { PaymentModal } from './components/PaymentModal/PaymentModal';
 const App = () => {
 	const [modalActive, setModalActive] = useState(false)
 	const [modalData, setModalData] = useState({ toppings: [] })
 	const [basketData, setBasketData] = useState([])
 	const [orderData, setOrderData] = useState({receiverAddress: {}, person: {}, debitCard:{}, pizzas: []})
+	const [paymentModalActive, setPaymentModalActive] = useState(false)
 	return (
 		<>
 			<BrowserRouter>
@@ -20,9 +22,10 @@ const App = () => {
 					<Route path='/' element = {<Main setModalActive={setModalActive} setModalData={setModalData} />}/>
 					<Route path='/basket' element={<Basket basketData={basketData} setBasketData={setBasketData} orderData={orderData} setOrderData={setOrderData}/>}/>
 					<Route path='/orderForm' element={<OrderForm orderData={orderData} setOrderData={setOrderData}/>}/>
-					<Route path='/debitCard' element={<DebitCard orderData={orderData} setOrderData={setOrderData}/>}/>
+					<Route path='/debitCard' element={<DebitCard orderData={orderData} setOrderData={setOrderData} setModalActive={setPaymentModalActive}/>}/>
 				</Routes>
 				<PizzaModal active={modalActive} setActive={setModalActive} data={modalData} basketData={basketData} setBasketData={setBasketData} />
+				<PaymentModal active={paymentModalActive} setActive={setPaymentModalActive} orderData={orderData}/>
 			</BrowserRouter>
 		</>
 
