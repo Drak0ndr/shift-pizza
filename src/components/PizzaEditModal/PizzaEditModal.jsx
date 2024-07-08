@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { SupplementCard } from "../SupplementCard/SupplementCard"
 import "../PizzaModal/PizzaModal.css"
 
-const PizzaEditModal = ({ active, setActive, basketData, setBasketData, id}) => {
+const PizzaEditModal = ({ active, setActive, basketData, setBasketData, id, updateBasket}) => {
     let data = {allToppings:[]}
     if (basketData.length > id) {
         data = basketData[id]
@@ -24,9 +24,9 @@ const PizzaEditModal = ({ active, setActive, basketData, setBasketData, id}) => 
         setActiveSupplements(data.toppings)
     }, [active])
     return (
-        <div className={active ? "pizza_modal_bg active" : "pizza_modal_bg"} onClick={() => {setActive(false);setActiveSupplements([]);setActiveSize(0)}}>
+        <div className={active ? "pizza_modal_bg active" : "pizza_modal_bg"} onClick={() => {setActive(false);setActiveSupplements([]);setActiveSize(0); updateBasket()}}>
             <div className="pizza_modal" onClick={(e) => e.stopPropagation()}>
-                <div className="close" onClick={() => setActive(false)}></div>
+                <div className="close" onClick={() => {setActive(false); updateBasket()}}></div>
                 <div className="content" >
                     <img src={data.img} alt="pizza" />
                     <div className="order">
@@ -47,7 +47,7 @@ const PizzaEditModal = ({ active, setActive, basketData, setBasketData, id}) => 
 
                             </div>
                         </div>
-                        <button className="button" onClick={() => {basketData[id].size = basketData[id].allSizes[activeSize];setActive(false);setActiveSupplements([]);setActiveSize(0)}}>Сохранить</button>
+                        <button className="button" onClick={() => {basketData[id].size = basketData[id].allSizes[activeSize];setActive(false);setActiveSupplements([]);setActiveSize(0); setBasketData(basketData); updateBasket()}}>Сохранить</button>
                     </div>
 
                 </div>

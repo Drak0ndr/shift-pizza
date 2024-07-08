@@ -5,7 +5,6 @@ import { PizzaEditModal } from '../../components/PizzaEditModal/PizzaEditModal.j
 import { NavLink } from 'react-router-dom'
 
 const Basket = ({ basketData, setBasketData, orderData, setOrderData}) => {
-    const [dataLength, setDataLength] = useState(basketData.length)
     const [cost, setCost] = useState(0)
     const [modalActive, setModalActive] = useState(false)
     const [modalId, setModalId] = useState(0)
@@ -22,16 +21,16 @@ const Basket = ({ basketData, setBasketData, orderData, setOrderData}) => {
         orderData.pizzas = basketData
         setOrderData(orderData)
     }
-    setInterval(() => {
+    useEffect(() => {
         calcCost()
-    }, 100)
+    }, [])
     return (
         <>
             <div className="basket">
                 <div className="container">
                     <div className=" pizzas">
                         {basketData.map((item, index) => (
-                            <PizzaOrder setModalActive={setModalActive} id={index} key={index} img={item.img} title={item.name} size={item.size} toppings={item.toppings} basketData={basketData} setBasketData={setBasketData} setLength={setDataLength} setModalId={setModalId}/>
+                            <PizzaOrder setModalActive={setModalActive} id={index} key={index} img={item.img} title={item.name} size={item.size} toppings={item.toppings} basketData={basketData} setBasketData={setBasketData} updateBasket={calcCost} setModalId={setModalId}/>
                         ))}
                     </div>
                     <div className="total">
@@ -42,7 +41,7 @@ const Basket = ({ basketData, setBasketData, orderData, setOrderData}) => {
                     </div>
                 </div>
             </div>
-            <PizzaEditModal active={modalActive} setActive={setModalActive} basketData={basketData} setBasketData={setBasketData} id={modalId}/>
+            <PizzaEditModal active={modalActive} setActive={setModalActive} basketData={basketData} setBasketData={setBasketData} id={modalId} updateBasket={calcCost}/>
         </>
 
     )

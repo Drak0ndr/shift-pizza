@@ -2,7 +2,7 @@ import { useState } from "react"
 import deleteIco from "./../../img/delete.svg"
 import "./PizzaOrder.css"
 
-const PizzaOrder = ({img, title, size, toppings, basketData, setBasketData, id, setLength, setModalActive, setModalId}) => {
+const PizzaOrder = ({img, title, size, toppings, basketData, setBasketData, id, updateBasket, setModalActive, setModalId}) => {
     const [count, setCount] = useState(1)
     const calcCost = () => {
         let ans = size.price
@@ -18,8 +18,7 @@ const PizzaOrder = ({img, title, size, toppings, basketData, setBasketData, id, 
         let temp = basketData
         temp[id].count = count
         setBasketData(temp)
-        setLength(basketData.length-count)
-        setLength(basketData.length+count)
+        updateBasket()
     }
     return (
         <div className="pizza_order">
@@ -33,7 +32,7 @@ const PizzaOrder = ({img, title, size, toppings, basketData, setBasketData, id, 
             </div>
             <p className="edit" onClick={() => {setModalActive(true);setModalId(id)}}>изменить</p>
             <p className="cost">{calcCost()*count} р</p>
-            <img className="delete" src={deleteIco} alt="" onClick={() => {let temp = basketData; temp.splice(id,1); setBasketData(temp);setLength(temp.length); console.log(basketData)}}/>
+            <img className="delete" src={deleteIco} alt="" onClick={() => {let temp = basketData; temp.splice(id,1); setBasketData(temp); updateBasket(); console.log(basketData)}}/>
         </div>
     )
 
