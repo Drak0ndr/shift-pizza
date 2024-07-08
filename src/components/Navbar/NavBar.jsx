@@ -3,8 +3,9 @@ import user from "./../../img/User.svg"
 import time from "./../../img/Time.svg"
 import basket from "./../../img/basket.svg"
 import exit from "./../../img/Exit.svg"
+import etrance from "./../../img/Etrance.svg"
 import "./NavBar.css"
-const NavBar = () => (
+const NavBar = ({isLogged, logout}) => (
 	<>
 		<nav>
 			<div className='container'>
@@ -14,10 +15,12 @@ const NavBar = () => (
 				
 				<div className="links">
 					<div>
-						<div className="link">
-							<img src={user} alt="" />
-							Профиль
-						</div>
+						<NavLink to={isLogged ? "/profile" : "/auth"}>
+							<div className="link">
+								<img src={user} alt="" />
+								Профиль
+							</div>
+						</NavLink>
 						<div className="link">
 							<img src={time} alt="" />
 							Заказы
@@ -30,10 +33,12 @@ const NavBar = () => (
 								Корзина
 							</div>
 						</NavLink>
-						<div className="link">
-							<img src={exit} alt="" />
-							Выйти
-						</div>
+						<NavLink to={isLogged ? "/" : "/auth"} >
+							<div className="link" onClick={() => {isLogged ? logout() : ""}}>
+								<img src={isLogged ? exit : etrance} alt="" />
+								{isLogged ? "Выйти" : "Войти"}
+							</div>
+						</NavLink>
 					</div>
 				</div>
 			</div>
