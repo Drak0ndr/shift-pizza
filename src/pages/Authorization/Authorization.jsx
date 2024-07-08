@@ -9,9 +9,11 @@ const Authorization = ({login}) => {
     const phoneHandler = e => {
         setPhone(e.target.value)
     }
+
     const optHandler = e => {
         setOtp(e.target.value)
     }
+
     const sendOtp = async (phone) => {
         const responce = await fetch("https://shift-backend.onrender.com/auth/otp", {
             method: "Post",
@@ -25,6 +27,7 @@ const Authorization = ({login}) => {
             setHaveOtp(true)
         }
     }
+
     const auth = async () => {
         const responce = await fetch("https://shift-backend.onrender.com/users/signin", {
             method: "Post",
@@ -38,6 +41,7 @@ const Authorization = ({login}) => {
             login(responce.token)
         }
     }
+    
     return (
         <div className="authorization">
             <div className="container">

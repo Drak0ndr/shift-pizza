@@ -5,7 +5,7 @@ import './PaymentModal.css'
 import { NavLink } from "react-router-dom"
 
 const PaymentModal = ({active, setActive, orderData}) => {
-
+    
     const getPizzaInfo = pizza => {
         let ans = pizza.name + ", " + pizza.size.name + ", " + pizza.doughs.name
         if (pizza.toppings.length > 0) {
@@ -30,6 +30,7 @@ const PaymentModal = ({active, setActive, orderData}) => {
 
         return ans
     }
+
     return (
         <div className={active ? "payment_modal_bg active" : "payment_modal_bg"} onClick={() => {setActive(false)}}>
             <div className="payment_modal" onClick={(e) => e.stopPropagation()}>

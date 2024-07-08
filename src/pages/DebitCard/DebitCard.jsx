@@ -9,6 +9,7 @@ const DebitCard = ({orderData, setOrderData, setModalActive}) => {
     const [numberDirty, setNumberDirty] = useState(false)
     const [validityDirty, setValidityDirty] = useState(false)
     const [cvvDirty, setCvvDirty] = useState(false)
+
     const numberHandler = e => {
         setNumber(e.target.value)
         orderData.debitCard.pan = e.target.value
@@ -42,6 +43,7 @@ const DebitCard = ({orderData, setOrderData, setModalActive}) => {
             setModalActive(true)
         }
     }
+    
     return (
         <div className="debit_card">
             <div className="container">

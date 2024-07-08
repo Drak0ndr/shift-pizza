@@ -17,6 +17,7 @@ const App = () => {
 	const [orderData, setOrderData] = useState({receiverAddress: {}, person: {}, debitCard:{}, pizzas: []})
 	const [paymentModalActive, setPaymentModalActive] = useState(false)
 	const [isLogged, setIsLogged] = useState(localStorage.getItem("userToken") ? true : false)
+
 	const logout = () => {
 		localStorage.removeItem("userToken")
 		setIsLogged(false)
@@ -25,6 +26,7 @@ const App = () => {
 		localStorage.setItem("userToken", token)
 		setIsLogged(true)
 	}
+
 	return (
 		<>
 			<BrowserRouter>
@@ -41,8 +43,6 @@ const App = () => {
 				<PaymentModal active={paymentModalActive} setActive={setPaymentModalActive} orderData={orderData}/>
 			</BrowserRouter>
 		</>
-
-
 	)
 }
 

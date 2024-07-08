@@ -4,6 +4,7 @@ import './SupplementCard.css'
 
 const SupplementCard = ({ title, cost, img,data,setData, cardActive, reset}) => {
     const [active, setActive] = useState(cardActive)
+
     const toggleActive = () => {
         if(active) {
             setActive(false)
@@ -20,10 +21,12 @@ const SupplementCard = ({ title, cost, img,data,setData, cardActive, reset}) => 
             setData(temp)
         }
     }
+
     useEffect(() => {
         setActive(cardActive)
         console.log(title, "render")
     }, [reset, cardActive])
+
     return(
         <div className={active ? "supplement_card supplement_active" : "supplement_card"} onClick={toggleActive}>
             <img src={backendUrl + img} alt="" />
@@ -31,7 +34,6 @@ const SupplementCard = ({ title, cost, img,data,setData, cardActive, reset}) => 
             <p className="price">{cost} ₽</p>
         </div>
     )
-
 }
 
 export { SupplementCard }

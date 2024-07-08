@@ -36,6 +36,7 @@ const Profile = () => {
         console.log(JSON.stringify({profile:{firstname:name, middlename:middleName, lastname:surname, email:email, city:addres}, phone: phone}))
         console.log(responce)
     }
+
     useEffect(() => {
         const data = getSession(localStorage.getItem("userToken"))
         
@@ -61,6 +62,7 @@ const Profile = () => {
             }
         })
     }, [])
+    
     return (
         <div className="profile">
             <div className="container">

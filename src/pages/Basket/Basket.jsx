@@ -8,6 +8,7 @@ const Basket = ({ basketData, setBasketData, orderData, setOrderData}) => {
     const [cost, setCost] = useState(0)
     const [modalActive, setModalActive] = useState(false)
     const [modalId, setModalId] = useState(0)
+
     const calcCost = () => {
         let ans = 0
         basketData.forEach(item => {
@@ -21,9 +22,11 @@ const Basket = ({ basketData, setBasketData, orderData, setOrderData}) => {
         orderData.pizzas = basketData
         setOrderData(orderData)
     }
+
     useEffect(() => {
         calcCost()
     }, [])
+
     return (
         <>
             <div className="basket">
@@ -43,9 +46,7 @@ const Basket = ({ basketData, setBasketData, orderData, setOrderData}) => {
             </div>
             <PizzaEditModal active={modalActive} setActive={setModalActive} basketData={basketData} setBasketData={setBasketData} id={modalId} updateBasket={calcCost}/>
         </>
-
     )
-
 }
 
 export { Basket }

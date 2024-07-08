@@ -4,6 +4,7 @@ import "./PizzaOrder.css"
 
 const PizzaOrder = ({img, title, size, toppings, basketData, setBasketData, id, updateBasket, setModalActive, setModalId}) => {
     const [count, setCount] = useState(1)
+
     const calcCost = () => {
         let ans = size.price
         toppings.forEach(item => {
@@ -11,6 +12,7 @@ const PizzaOrder = ({img, title, size, toppings, basketData, setBasketData, id, 
         })
         return ans
     }
+
     const changeCount = (count) => {
         if (count < 1) {
             count = 1
@@ -20,6 +22,7 @@ const PizzaOrder = ({img, title, size, toppings, basketData, setBasketData, id, 
         setBasketData(temp)
         updateBasket()
     }
+
     return (
         <div className="pizza_order">
             <img src={img} alt="" />
@@ -35,7 +38,6 @@ const PizzaOrder = ({img, title, size, toppings, basketData, setBasketData, id, 
             <img className="delete" src={deleteIco} alt="" onClick={() => {let temp = basketData; temp.splice(id,1); setBasketData(temp); updateBasket(); console.log(basketData)}}/>
         </div>
     )
-
 }
 
 export { PizzaOrder }

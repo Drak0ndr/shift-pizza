@@ -4,12 +4,16 @@ import "../PizzaModal/PizzaModal.css"
 
 const PizzaEditModal = ({ active, setActive, basketData, setBasketData, id, updateBasket}) => {
     let data = {allToppings:[]}
+
     if (basketData.length > id) {
         data = basketData[id]
     }
+    
     const [activeSize, setActiveSize] = useState(0)
     const [activeSupplements, setActiveSupplements] = useState(data.toppings)
+
     console.log(data, activeSupplements)
+
     const isSupplementActive = (name) => {
         for (let item of activeSupplements) {
             if (name == item.name) {
@@ -20,9 +24,11 @@ const PizzaEditModal = ({ active, setActive, basketData, setBasketData, id, upda
         console.log(false, name)
         return false
     }
+
     useEffect(() => {
         setActiveSupplements(data.toppings)
     }, [active])
+
     return (
         <div className={active ? "pizza_modal_bg active" : "pizza_modal_bg"} onClick={() => {setActive(false);setActiveSupplements([]);setActiveSize(0); updateBasket()}}>
             <div className="pizza_modal" onClick={(e) => e.stopPropagation()}>
@@ -49,7 +55,6 @@ const PizzaEditModal = ({ active, setActive, basketData, setBasketData, id, upda
                         </div>
                         <button className="button" onClick={() => {basketData[id].size = basketData[id].allSizes[activeSize];setActive(false);setActiveSupplements([]);setActiveSize(0); setBasketData(basketData); updateBasket()}}>Сохранить</button>
                     </div>
-
                 </div>
             </div>
         </div>

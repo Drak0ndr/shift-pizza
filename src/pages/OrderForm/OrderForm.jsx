@@ -14,6 +14,7 @@ const OrderForm = ({orderData, setOrderData}) => {
     const [phoneDirty, setPhoneDirty] = useState(false)
 
     orderData.receiverAddress = {street: " ", house: " ", apartment: " ", comment: " "}
+
     const surnameHandler = e => {
         setSurname(e.target.value)
         orderData.person.lastname = e.target.value
@@ -50,6 +51,7 @@ const OrderForm = ({orderData, setOrderData}) => {
         orderData.receiverAddress.house = data[2].replace("д.", "")
         orderData.receiverAddress.apartment = data[3].replace("кв.", "")
     }
+    
     return (
         <div className="Order_form">
             <div className="container">
