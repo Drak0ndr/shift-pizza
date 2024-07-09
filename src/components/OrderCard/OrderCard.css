@@ -1,0 +1,57 @@
+.order_card {
+    border: 1px solid #e3e5e5;
+    border-radius: 24px;
+    padding: 24px 48px;
+    margin-top: 24px;
+}
+
+.order_card .name {
+    font-size: 12px;
+    line-height: 133%;
+    color: #637083;
+    margin: 0;
+}
+
+.order_card .item {
+    font-size: 16px;
+    line-height: 150%;
+    color: #141c24;
+    margin: 24px 0 0 0;
+}
+
+.order_card button {
+    border-radius: 16px;
+    padding: 16px 32px;
+    background: #f4511e;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #fff;
+    border: none;
+    width: 328px;
+    margin-top: 24px;
+}
+
+.order_card .label {
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    margin-right: 12px;
+}
+
+.order_card .success {
+    background-color: #40bf7f;
+}
+
+.order_card .pending {
+    background-color: #ffb219;
+}
+
+.order_card .cancel {
+    background-color: #f64c4c;
+}
+
+.order_card .item div {
+    display: flex;
+    align-items: center;
+}

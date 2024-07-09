@@ -1,0 +1,67 @@
+.cancel_modal_bg {
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    display: none;
+    justify-content: center;
+    align-items:center;
+}
+
+.cancel_modal_bg.active {
+    display: flex;
+}
+
+.cancel_modal {
+    border-radius: 24px;
+    width: 544px;
+    height: 400px;
+    background-color:white;
+    position: relative;
+}
+
+.cancel_modal .close {
+    height: 24px;
+    width: 24px;
+    background-image:url("./../../img/close.svg");
+    position: absolute;
+    top:16px;
+    right: 24px;
+  }
+
+.cancel_modal .content {
+    padding: 40px 72px 72px 72px;
+}
+.cancel_modal img {
+    display: block;
+    margin: 0 auto;
+}
+.cancel_modal .title {
+    margin-bottom: 40px;
+    text-align: center;
+}
+.cancel_modal button {
+    display: block;
+    border-radius: 16px;
+    padding: 16px 32px;
+    width: 328px;
+    margin: 0 auto;
+    border:none;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+}
+
+.cancel_modal .cancel {
+    border: 1px solid #ced2da;
+    background-color:white;
+    color: #344051;
+}
+
+.cancel_modal .no_cancel {
+    background-color: #f4511e;
+    color: #fff;
+    margin-top: 16px;
+}

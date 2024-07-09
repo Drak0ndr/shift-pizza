@@ -2,7 +2,6 @@ import { useState } from 'react'
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import { NavBar } from './components/Navbar/NavBar'
 import { PizzaModal } from './components/PizzaModal/PizzaModal'
-import './App.css'
 import { Main } from './pages/Main/Main'
 import { Basket } from './pages/Basket/Basket';
 import { OrderForm } from './pages/OrderForm/OrderForm';
@@ -11,6 +10,8 @@ import { PaymentModal } from './components/PaymentModal/PaymentModal';
 import { Authorization } from './pages/Authorization/Authorization';
 import { Profile } from './pages/Profile/Profile';
 import { Orders } from './pages/Orders/Orders';
+import './App.css'
+import { History } from './pages/History/History';
 const App = () => {
 	const [modalActive, setModalActive] = useState(false)
 	const [modalData, setModalData] = useState({ toppings: [] })
@@ -40,6 +41,7 @@ const App = () => {
 					<Route path='/auth' element={<Authorization login={login}/>}/>
 					<Route path='/profile' element={<Profile/>}/>
 					<Route path='/orders' element={<Orders isLogged={isLogged}/>}/>
+					<Route path='/history' element={<History/>}/>
 				</Routes>
 				<PizzaModal active={modalActive} setActive={setModalActive} data={modalData} basketData={basketData} setBasketData={setBasketData} />
 				<PaymentModal active={paymentModalActive} setActive={setPaymentModalActive} orderData={orderData}/>
