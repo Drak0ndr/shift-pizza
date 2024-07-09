@@ -1,8 +1,8 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./OrderForm.css"
 import { NavLink } from "react-router-dom"
 
-const OrderForm = ({orderData, setOrderData}) => {
+const OrderForm = ({orderData, setOrderData, isLogged}) => {
     const [surname, setSurname] = useState('')
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
@@ -15,6 +15,54 @@ const OrderForm = ({orderData, setOrderData}) => {
 
     orderData.receiverAddress = {street: " ", house: " ", apartment: " ", comment: " "}
 
+    const getSession = async (token) => {
+        const responce = await fetch(
+            "https://shift-backend.onrender.com/users/session", {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json;charset=utf-8'
+                }
+            }
+        ).then((responce) => responce.json())
+
+        return responce
+    }
+
+    useEffect(() => {
+        if (localStorage.getItem("userToken")) {
+            const session = getSession(localStorage.getItem("userToken"))
+            session.then(data => {
+                if (data.user.phone) {
+                    setPhone(data.user.phone)
+                    orderData.person.phone = data.user.phone
+                }
+                if (data.user.firstname) {
+                    setName(data.user.firstname)
+                    orderData.person.firstname = data.user.firstname
+                }
+                if (data.user.lastname) {
+                    setSurname(data.user.lastname)
+                    orderData.person.lastname = data.user.lastname
+                }
+                if(data.user.email) {
+                    setEmail(data.user.email)
+                }
+                if(data.user.city) {
+                    setAddres(data.user.city)
+                    let temp = data.user.city
+                    const commaCount = characterCounter(temp, ',')
+                    for(let i =0; i < 5-commaCount; i++) {
+                        temp+=','
+                    }
+                    temp = temp.split(',')
+                    orderData.receiverAddress.street = temp[1].replace("ул.", "")
+                    orderData.receiverAddress.house = temp[2].replace("д.", "")
+                    orderData.receiverAddress.apartment = temp[3].replace("кв.", "")
+                }
+            })
+        }
+        
+    },[])
     const surnameHandler = e => {
         setSurname(e.target.value)
         orderData.person.lastname = e.target.value
