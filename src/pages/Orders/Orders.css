@@ -1,0 +1,20 @@
+.orders {
+    margin-top: 48px;
+}
+
+.orders .title {
+    display: flex;
+    column-gap: 24px;
+    font-size: 14px;
+    line-height: 143%;
+    color: #637083;
+    margin-bottom: 24px;
+}
+
+.orders .status {
+    width: 220px;
+}
+
+.orders .addres {
+    width: 300px;
+}

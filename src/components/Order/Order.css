@@ -1,0 +1,49 @@
+.Order {
+    display: flex;
+    align-items: start;
+    column-gap: 24px;
+    border-top: 1px solid #e3e5e5;
+    padding: 24px 0;
+}
+
+.Order .item {
+    font-size: 16px;
+    line-height: 150%;
+    color: #141c24;
+    display: flex;
+}
+.Order .success {
+    background-color: #40bf7f;
+}
+.Order .cancel {
+    background-color: #f64c4c;
+}
+.Order .pending {
+    background-color: #ffb219;
+}
+.Order .label {
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    margin-right: 12px;
+}
+
+.Order .status {
+    width: 220px;
+    align-items: center;
+}
+
+.Order .addres {
+    width: 300px;
+}
+
+.Order .compaund {
+    width: 160px;
+}
+
+.Order .details {
+    font-size: 12px;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: #97a1af;
+}

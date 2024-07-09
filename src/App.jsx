@@ -10,6 +10,7 @@ import { DebitCard } from './pages/DebitCard/DebitCard';
 import { PaymentModal } from './components/PaymentModal/PaymentModal';
 import { Authorization } from './pages/Authorization/Authorization';
 import { Profile } from './pages/Profile/Profile';
+import { Orders } from './pages/Orders/Orders';
 const App = () => {
 	const [modalActive, setModalActive] = useState(false)
 	const [modalData, setModalData] = useState({ toppings: [] })
@@ -38,6 +39,7 @@ const App = () => {
 					<Route path='/debitCard' element={<DebitCard orderData={orderData} setOrderData={setOrderData} setModalActive={setPaymentModalActive}/>}/>
 					<Route path='/auth' element={<Authorization login={login}/>}/>
 					<Route path='/profile' element={<Profile/>}/>
+					<Route path='/orders' element={<Orders isLogged={isLogged}/>}/>
 				</Routes>
 				<PizzaModal active={modalActive} setActive={setModalActive} data={modalData} basketData={basketData} setBasketData={setBasketData} />
 				<PaymentModal active={paymentModalActive} setActive={setPaymentModalActive} orderData={orderData}/>

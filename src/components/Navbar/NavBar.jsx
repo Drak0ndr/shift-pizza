@@ -21,10 +21,12 @@ const NavBar = ({isLogged, logout}) => (
 								Профиль
 							</div>
 						</NavLink>
-						<div className="link">
-							<img src={time} alt="" />
-							Заказы
-						</div>
+						<NavLink to="/orders">
+							<div className="link">
+								<img src={time} alt="" />
+								Заказы
+							</div>
+						</NavLink>
 					</div>
 					<div>
 						<NavLink to="/basket">
