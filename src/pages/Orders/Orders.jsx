@@ -1,21 +1,10 @@
 import { useEffect, useState } from "react"
 import { Order } from "../../components/Order/Order"
+import { getOrders } from "../../api/getOrders"
 import "./Orders.css"
 
 const Orders = () => {
     const [orders, setOrders] = useState([])
-    const getOrders = async (token) => {
-        const responce = await fetch(
-            "https://shift-backend.onrender.com/pizza/orders", {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    'Content-Type': 'application/json;charset=utf-8'
-                }
-            }
-        ).then((responce) => responce.json())
-
-        return responce
-    }
 
     useEffect(() => {
         const responce = getOrders(localStorage.getItem("userToken"))
@@ -24,6 +13,7 @@ const Orders = () => {
             console.log(data)
         })
     },[])
+    
     return (
         <div className="orders">
             <div className="container">

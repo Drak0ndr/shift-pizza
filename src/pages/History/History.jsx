@@ -1,25 +1,14 @@
 import { useEffect, useState } from "react"
 import { OrderCard } from "../../components/OrderCard/OrderCard"
-import "./History.css"
 import { CancelModal } from "../../components/CancelModal/CancelModal"
+import { getOrders } from "../../api/getOrders"
+import "./History.css"
 
 const History = () => {
     const [orders, setOrders] = useState([])
     const [modalActive, setModalActive] = useState(false)
     const [modalOrderId, setModalOrderId] = useState("")
-    const getOrders = async (token) => {
-        const responce = await fetch(
-            "https://shift-backend.onrender.com/pizza/orders", {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    'Content-Type': 'application/json;charset=utf-8'
-                }
-            }
-        ).then((responce) => responce.json())
-
-        return responce
-    }
-
+    
     useEffect(() => {
         const responce = getOrders(localStorage.getItem("userToken"))
         responce.then(data => {
@@ -27,6 +16,7 @@ const History = () => {
             console.log(data)
         })
     },[])
+
     return (
         <div className="history">
             <div className="container">

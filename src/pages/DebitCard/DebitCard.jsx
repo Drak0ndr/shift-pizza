@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./DebitCard.css";
+import { sendPayment } from "../../api/sendPayment";
 
 const DebitCard = ({orderData, setOrderData, setModalActive}) => {
     const [number, setNumber] = useState("")
@@ -30,14 +31,7 @@ const DebitCard = ({orderData, setOrderData, setModalActive}) => {
     }
 
     const payment = async (data) => {
-        const responce = await fetch("https://shift-backend.onrender.com/pizza/payment", {
-            method: "Post",
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
-            body: JSON.stringify(data)
-        }).then((response) => response.json())
-        console.log(responce)
+        const responce = await sendPayment(data)
 
         if (responce.success) {
             setModalActive(true)
