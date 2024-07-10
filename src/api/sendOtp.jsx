@@ -6,10 +6,8 @@ const sendOtp = async (phone) => {
         },
         body: JSON.stringify({phone:phone})
     }).then((response) => response.json())
-    
-    if (responce.success) {
-        setHaveOtp(true)
-    }
+
+    return responce
 }
 
 export {sendOtp}

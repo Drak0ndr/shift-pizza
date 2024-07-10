@@ -31,7 +31,7 @@ const Authorization = ({login}) => {
                 <p className="description">Введите номер телефона для входа в личный кабинет</p>
                 <input onChange={(e) => {phoneHandler(e)}} type="tel" name="phone" id="" placeholder="Телефон" value={phone}/>
                 <input className={haveOtp ? "" : "hidden"} onChange={(e) => {optHandler(e)}} type="text" name="phone" id="" placeholder="Проверочный код" value={otp}/>
-                <button onClick={() => {haveOtp ? auth() : sendOtp(phone)}}>{haveOtp ? "Войти" : "Продолжить"}</button>
+                <button onClick={() => {haveOtp ? auth() : sendOtp(phone).then(responce => {console.log(responce); responce.success ? setHaveOtp(true): setHaveOtp(false)})}}>{haveOtp ? "Войти" : "Продолжить"}</button>
             </div>
         </div>
     )
