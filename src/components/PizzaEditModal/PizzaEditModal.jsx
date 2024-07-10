@@ -3,12 +3,7 @@ import { SupplementCard } from "../SupplementCard/SupplementCard"
 import "../PizzaModal/PizzaModal.css"
 
 const PizzaEditModal = ({ active, setActive, basketData, setBasketData, id, updateBasket}) => {
-    let data = {allToppings:[]}
-
-    if (basketData.length > id) {
-        data = basketData[id]
-    }
-    
+    const data = basketData.length > id ? basketData[id] : {allToppings:[]}
     const [activeSize, setActiveSize] = useState(0)
     const [activeSupplements, setActiveSupplements] = useState(data.toppings)
 
@@ -23,6 +18,17 @@ const PizzaEditModal = ({ active, setActive, basketData, setBasketData, id, upda
         }
         console.log(false, name)
         return false
+    }
+
+    const toggleSupplementActive = (name, cost, img) => {
+        for (let i =0; i < activeSupplements.length; i++) {
+            if (activeSupplements[i].name == name) {
+                activeSupplements.splice(i, 1)
+                return
+            }
+        }
+        activeSupplements.push({name:name, cost:cost, img:img})
+        setActiveSupplements(activeSupplements)
     }
 
     useEffect(() => {
@@ -48,7 +54,7 @@ const PizzaEditModal = ({ active, setActive, basketData, setBasketData, id, upda
                             <p className="add">Добавить по вкусу</p>
                             <div className="supplements">
                                 {data.allToppings.map((item, index) => (
-                                    <SupplementCard key={index} img={item.img} title={item.name} cost={item.cost} data={activeSupplements} setData={setActiveSupplements} cardActive={isSupplementActive(item.name)} reset={active}/>
+                                    <SupplementCard key={index} img={item.img} title={item.name} cost={item.cost} cardActive={isSupplementActive(item.name)} reset={active} toggleSupplementActive={toggleSupplementActive}/>
                                 ))}
 
                             </div>
