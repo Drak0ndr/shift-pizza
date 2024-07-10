@@ -3,7 +3,7 @@ import deleteIco from "./../../img/delete.svg"
 import "./PizzaOrder.css"
 
 const PizzaOrder = ({img, title, size, toppings, basketData, setBasketData, id, updateBasket, setModalActive, setModalId}) => {
-    const [count, setCount] = useState(1)
+    const [count, setCount] = useState(basketData[id].count)
 
     const calcCost = () => {
         let ans = size.price
