@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom"
-import user from "./../../img/User.svg"
-import time from "./../../img/Time.svg"
+import user from "./../../img/user.svg"
+import time from "./../../img/time.svg"
 import basket from "./../../img/basket.svg"
-import exit from "./../../img/Exit.svg"
-import etrance from "./../../img/Etrance.svg"
+import exit from "./../../img/exit.svg"
+import etrance from "./../../img/etrance.svg"
 import "./NavBar.css"
 const NavBar = ({isLogged, logout}) => (
 	<>
