@@ -14,7 +14,6 @@ const SupplementCard = ({ title, cost, img, cardActive, reset, toggleSupplementA
     }
     useEffect(() => {
         setActive(cardActive)
-        console.log(title, "render")
     }, [reset, cardActive])
 
     return(

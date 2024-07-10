@@ -3,20 +3,16 @@ import { SupplementCard } from "../SupplementCard/SupplementCard"
 import "../PizzaModal/PizzaModal.css"
 
 const PizzaEditModal = ({ active, setActive, basketData, setBasketData, id, updateBasket}) => {
-    const data = basketData.length > id ? basketData[id] : {allToppings:[]}
+    const [data, setData] = useState({allToppings:[], toppings:[]})
     const [activeSize, setActiveSize] = useState(0)
     const [activeSupplements, setActiveSupplements] = useState(data.toppings)
-
-    console.log(data, activeSupplements)
 
     const isSupplementActive = (name) => {
         for (let item of activeSupplements) {
             if (name == item.name) {
-                console.log(true, name)
                 return true
             }
         }
-        console.log(false, name)
         return false
     }
 
@@ -32,8 +28,13 @@ const PizzaEditModal = ({ active, setActive, basketData, setBasketData, id, upda
     }
 
     useEffect(() => {
-        setActiveSupplements(data.toppings)
-    }, [active])
+        if (basketData.length > id) {
+            setData(basketData[id])
+            setActiveSupplements(basketData[id].toppings)
+        } else {
+            setActiveSupplements(data.toppings)
+        }
+    })
 
     return (
         <div className={active ? "pizza_modal_bg active" : "pizza_modal_bg"} onClick={() => {setActive(false);setActiveSupplements([]);setActiveSize(0); updateBasket()}}>
