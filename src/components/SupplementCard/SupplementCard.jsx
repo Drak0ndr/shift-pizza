@@ -16,7 +16,7 @@ const SupplementCard = ({ title, cost, img,data,setData, cardActive, reset}) => 
             setData(data)
         } else {
             setActive(true)
-            let temp = data
+            const temp = data
             temp.push({name:title, cost:cost, img:img})
             setData(temp)
         }

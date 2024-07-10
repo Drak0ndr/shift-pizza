@@ -1,4 +1,4 @@
-.Order {
+.оrder {
     display: flex;
     align-items: start;
     column-gap: 24px;
@@ -6,42 +6,42 @@
     padding: 24px 0;
 }
 
-.Order .item {
+.оrder .item {
     font-size: 16px;
     line-height: 150%;
     color: #141c24;
     display: flex;
 }
-.Order .success {
+.оrder .success {
     background-color: #40bf7f;
 }
-.Order .cancel {
+.оrder .cancel {
     background-color: #f64c4c;
 }
-.Order .pending {
+.оrder .pending {
     background-color: #ffb219;
 }
-.Order .label {
+.оrder .label {
     width: 8px;
     height: 8px;
     border-radius: 100%;
     margin-right: 12px;
 }
 
-.Order .status {
+.оrder .status {
     width: 220px;
     align-items: center;
 }
 
-.Order .addres {
+.оrder .addres {
     width: 300px;
 }
 
-.Order .compaund {
+.оrder .compaund {
     width: 160px;
 }
 
-.Order .details {
+.оrder .details {
     font-size: 12px;
     text-decoration: underline;
     text-decoration-skip-ink: none;

@@ -1,5 +1,7 @@
 import { useState } from "react"
 import "./Authorization.css"
+import { sendOtp } from "../../api/sendOtp"
+import { authorization } from "../../api/authorization"
 
 const Authorization = ({login}) => {
     const [phone, setPhone] = useState("")
@@ -14,29 +16,9 @@ const Authorization = ({login}) => {
         setOtp(e.target.value)
     }
 
-    const sendOtp = async (phone) => {
-        const responce = await fetch("https://shift-backend.onrender.com/auth/otp", {
-            method: "Post",
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
-            body: JSON.stringify({phone:phone})
-        }).then((response) => response.json())
-        
-        if (responce.success) {
-            setHaveOtp(true)
-        }
-    }
-
     const auth = async () => {
-        const responce = await fetch("https://shift-backend.onrender.com/users/signin", {
-            method: "Post",
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
-            body: JSON.stringify({phone:phone, code:otp})
-        }).then((response) => response.json())
-        
+        const responce = await authorization(phone, otp)
+
         if (responce.success) {
             login(responce.token)
         }

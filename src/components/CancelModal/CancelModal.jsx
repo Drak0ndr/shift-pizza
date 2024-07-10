@@ -13,8 +13,6 @@ const CancelModal = ({active, setActive, id}) => {
                 body: JSON.stringify({orderId: id,})
             }
         ).then((responce) => responce.json())
-        console.log(JSON.stringify({orderId: id,}))
-        console.log(responce)
     }
     return (
         <div className={active ? "cancel_modal_bg active" : "cancel_modal_bg" } onClick={() => setActive(false)}>

@@ -6,8 +6,6 @@ const PizzaModal = ({ active, setActive, data, basketData, setBasketData}) => {
     const [activeSize, setActiveSize] = useState(0)
     const [activeSupplements, setActiveSupplements] = useState([])
     
-    console.log(data)
-
     return (
         <div className={active ? "pizza_modal_bg active" : "pizza_modal_bg"} onClick={() => {setActive(false);setActiveSupplements([]);setActiveSize(0)}}>
             <div className="pizza_modal" onClick={(e) => e.stopPropagation()}>

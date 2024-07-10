@@ -10,7 +10,7 @@ const NavBar = ({isLogged, logout}) => (
 		<nav>
 			<div className='container'>
 				<NavLink to="/">
-					<div className="logo"></div>
+					<div className="logo"/>
 				</NavLink>
 				
 				<div className="links">
@@ -18,13 +18,13 @@ const NavBar = ({isLogged, logout}) => (
 						<NavLink to={isLogged ? "/profile" : "/auth"}>
 							<div className="link">
 								<img src={user} alt="" />
-								Профиль
+								<span>Профиль</span>
 							</div>
 						</NavLink>
 						<NavLink to="/orders">
 							<div className="link">
 								<img src={time} alt="" />
-								Заказы
+								<span>Заказы</span>
 							</div>
 						</NavLink>
 					</div>
@@ -32,13 +32,13 @@ const NavBar = ({isLogged, logout}) => (
 						<NavLink to="/basket">
 							<div className="link">
 								<img src={basket} alt="" />
-								Корзина
+								<span>Корзина</span>
 							</div>
 						</NavLink>
 						<NavLink to={isLogged ? "/" : "/auth"} >
 							<div className="link" onClick={() => {isLogged ? logout() : ""}}>
 								<img src={isLogged ? exit : etrance} alt="" />
-								{isLogged ? "Выйти" : "Войти"}
+								{isLogged ? <span>Выйти</span> : <span>Войти</span>}
 							</div>
 						</NavLink>
 					</div>
