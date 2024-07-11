@@ -24,8 +24,8 @@ const DebitCard = ({orderData, setOrderData, setModalActive}) => {
         setCvv(e.target.value)
         orderData.debitCard.cvv = e.target.value
     }
-    const setColor = (dirty, value) => {
-        if (dirty && value=="") {
+    const setColor = (dirty, value, maskLength) => {
+        if (dirty && value.length < maskLength) {
             return "red"
         }
         return "black"
@@ -45,21 +45,21 @@ const DebitCard = ({orderData, setOrderData, setModalActive}) => {
                 <p>Введите данные карты для оплаты</p>
                 <div className="card">
                     <div className="form_item">
-                        <label htmlFor="number" style={{color: setColor(numberDirty, number)}}>Номер*</label>
+                        <label htmlFor="number" style={{color: setColor(numberDirty, number, 9)}}>Номер*</label>
                         <InputMask mask="9999 9999" maskChar="" onBlur={() => {setNumberDirty(true)}} onChange={e => {numberHandler(e)}} type="text" required name="number" placeholder="0000 0000" value={number}/>
                     </div>
                     <div className="secret_data">
                         <div className="form_item">
-                            <label htmlFor="validity" style={{color: setColor(validityDirty, validity)}}>Срок*</label>
+                            <label htmlFor="validity" style={{color: setColor(validityDirty, validity, 5)}}>Срок*</label>
                             <InputMask mask="99/99" maskChar="" onBlur={() => {setValidityDirty(true)}} onChange={e => {validityHandler(e)}} type="text" name="validity" required placeholder="00/00" value={validity}/>
                         </div>
                         <div className="form_item">
-                            <label htmlFor="cvv" style={{color: setColor(cvvDirty, cvv)}}>CVV*</label>
+                            <label htmlFor="cvv" style={{color: setColor(cvvDirty, cvv, 3)}}>CVV*</label>
                             <InputMask mask="999" maskChar="" onBlur={() => {setCvvDirty(true)}} onChange={e => {cvvHandler(e)}} type="text" name="cvv" required placeholder="000" value={cvv}/>
                         </div>
                     </div>
                 </div>
-                <button disabled= {number=="" || validity == "" || cvv==""} onClick={() => {setOrderData(orderData); payment(orderData)}}>Оплатить</button>
+                <button disabled= {number.length < 9 || validity.length < 5 || cvv.length < 3} onClick={() => {setOrderData(orderData); payment(orderData)}}>Оплатить</button>
             </div>
             
         </div>
