@@ -3,7 +3,7 @@ import "./OrderForm.css"
 import { NavLink } from "react-router-dom"
 import { getSession } from "../../api/getSession"
 
-const OrderForm = ({orderData, setOrderData, isLogged}) => {
+const OrderForm = ({orderData, setOrderData}) => {
     const [surname, setSurname] = useState('')
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')

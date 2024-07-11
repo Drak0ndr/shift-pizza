@@ -36,8 +36,8 @@ const App = () => {
 				<Routes>
 					<Route path='/' element = {<Main setModalActive={setModalActive} setModalData={setModalData} />}/>
 					<Route path='/basket' element={<Basket basketData={basketData} setBasketData={setBasketData} orderData={orderData} setOrderData={setOrderData}/>}/>
-					<Route path='/orderForm' element={<OrderForm orderData={orderData} setOrderData={setOrderData} isLogged={isLogged}/>}/>
-					<Route path='/debitCard' element={<DebitCard orderData={orderData} setOrderData={setOrderData} setModalActive={setPaymentModalActive}/>}/>
+					<Route path='/orderForm' element={<OrderForm orderData={orderData} setOrderData={setOrderData}/>}/>
+					<Route path='/debitCard' element={<DebitCard orderData={orderData} setOrderData={setOrderData} setModalActive={setPaymentModalActive} setBasketData={setBasketData}/>}/>
 					<Route path='/auth' element={<Authorization login={login}/>}/>
 					<Route path='/profile' element={<Profile/>}/>
 					<Route path='/orders' element={<Orders isLogged={isLogged}/>}/>

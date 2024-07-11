@@ -2,12 +2,14 @@ import { useState } from "react"
 import "./Authorization.css"
 import { sendOtp } from "../../api/sendOtp"
 import { authorization } from "../../api/authorization"
+import { useNavigate } from "react-router-dom"
 
 const Authorization = ({login}) => {
     const [phone, setPhone] = useState("")
     const [otp, setOtp] = useState("")
     const [haveOtp, setHaveOtp] = useState(false)
-
+    const navigate = useNavigate()
+    
     const phoneHandler = e => {
         setPhone(e.target.value)
     }
@@ -17,10 +19,12 @@ const Authorization = ({login}) => {
     }
 
     const auth = async () => {
+        
         const responce = await authorization(phone, otp)
 
         if (responce.success) {
             login(responce.token)
+            navigate("/")
         }
     }
     

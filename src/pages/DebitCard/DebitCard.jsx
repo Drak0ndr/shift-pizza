@@ -3,7 +3,7 @@ import InputMask from 'react-input-mask';
 import "./DebitCard.css";
 import { sendPayment } from "../../api/sendPayment";
 
-const DebitCard = ({orderData, setOrderData, setModalActive}) => {
+const DebitCard = ({orderData, setOrderData, setModalActive, setBasketData}) => {
     const [number, setNumber] = useState("")
     const [validity, setValidity] = useState("")
     const [cvv, setCvv] = useState("")
@@ -36,6 +36,7 @@ const DebitCard = ({orderData, setOrderData, setModalActive}) => {
         console.log(data)
         if (responce.success) {
             setModalActive(true)
+            setBasketData([])
         }
     }
     

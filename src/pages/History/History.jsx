@@ -15,7 +15,7 @@ const History = () => {
             setOrders(data.orders)
             console.log(data)
         })
-    },[])
+    })
 
     return (
         <div className="history">
