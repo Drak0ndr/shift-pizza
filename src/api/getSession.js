@@ -1,6 +1,6 @@
-const getOrders = async (token) => {
+export const getSession = async (token) => {
     const responce = await fetch(
-        "https://shift-backend.onrender.com/pizza/orders", {
+        "https://shift-backend.onrender.com/users/session", {
             headers: {
                 Authorization: `Bearer ${token}`,
                 'Content-Type': 'application/json;charset=utf-8'
@@ -10,5 +10,3 @@ const getOrders = async (token) => {
 
     return responce
 }
-
-export {getOrders}

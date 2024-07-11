@@ -1,4 +1,4 @@
-const authorization = async (phone, otp) => {
+export const authorization = async (phone, otp) => {
     const responce = await fetch("https://shift-backend.onrender.com/users/signin", {
         method: "Post",
         headers: {
@@ -9,5 +9,3 @@ const authorization = async (phone, otp) => {
 
     return responce
 }
-
-export {authorization}

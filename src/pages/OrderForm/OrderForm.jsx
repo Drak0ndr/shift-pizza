@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import "./OrderForm.css"
 import { NavLink } from "react-router-dom"
+import { getSession } from "../../api/getSession"
 
 const OrderForm = ({orderData, setOrderData, isLogged}) => {
     const [surname, setSurname] = useState('')
@@ -13,22 +14,9 @@ const OrderForm = ({orderData, setOrderData, isLogged}) => {
     const [nameDirty, setNameDirty] = useState(false)
     const [phoneDirty, setPhoneDirty] = useState(false)
 
-    orderData.receiverAddress = {street: " ", house: " ", apartment: " ", comment: " "}
-
-    const getSession = async (token) => {
-        const responce = await fetch(
-            "https://shift-backend.onrender.com/users/session", {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    'Content-Type': 'application/json;charset=utf-8'
-                }
-            }
-        ).then((responce) => responce.json())
-
-        return responce
-    }
-
     useEffect(() => {
+        orderData.receiverAddress = {street: " ", house: " ", apartment: " ", comment: " "}
+
         if (localStorage.getItem("userToken")) {
             const session = getSession(localStorage.getItem("userToken"))
             session.then(data => {
@@ -63,6 +51,7 @@ const OrderForm = ({orderData, setOrderData, isLogged}) => {
         }
         
     },[])
+
     const surnameHandler = e => {
         setSurname(e.target.value)
         orderData.person.lastname = e.target.value

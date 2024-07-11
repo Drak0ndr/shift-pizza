@@ -1,4 +1,4 @@
-const calcOrderCost = pizzas => {
+export const calcOrderCost = pizzas => {
     console.log(pizzas)
     let ans = 0
     pizzas.forEach(pizza => {
@@ -10,5 +10,3 @@ const calcOrderCost = pizzas => {
 
     return ans
 }
-
-export {calcOrderCost}

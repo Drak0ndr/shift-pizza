@@ -1,4 +1,4 @@
-const cancelOrder = async (token, id) => {
+export const cancelOrder = async (token, id) => {
     const responce = await fetch(
         "https://shift-backend.onrender.com/pizza/orders/cancel", {
             method: "PUT",
@@ -12,5 +12,3 @@ const cancelOrder = async (token, id) => {
 
     return responce
 }
-
-export {cancelOrder}

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import "./Profile.css"
+import { getSession } from "../../api/getSession"
+import { updateProfile } from "../../api/updateProfile"
 
 const Profile = () => {
     const [name, setName] = useState("")
@@ -8,34 +10,6 @@ const Profile = () => {
     const [phone, setPhone] = useState("")
     const [email, setEmail] = useState("")
     const [addres, setAddres] = useState("")
-
-    const getSession = async (token) => {
-        const responce = await fetch(
-            "https://shift-backend.onrender.com/users/session", {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    'Content-Type': 'application/json;charset=utf-8'
-                }
-            }
-        ).then((responce) => responce.json())
-
-        return responce
-    }
-
-    const updateProfile = async (token) => {
-        const responce = await fetch(
-            "https://shift-backend.onrender.com/users/profile", {
-                method: "PATCH",
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    'Content-Type': 'application/json;charset=utf-8'
-                },
-                body: JSON.stringify({profile:{firstname:name, middlename:middleName, lastname:surname, email:email, city:addres}, phone: phone})
-            }
-        ).then((responce) => responce.json())
-        console.log(JSON.stringify({profile:{firstname:name, middlename:middleName, lastname:surname, email:email, city:addres}, phone: phone}))
-        console.log(responce)
-    }
 
     useEffect(() => {
         const data = getSession(localStorage.getItem("userToken"))
@@ -93,7 +67,7 @@ const Profile = () => {
                         <input onChange={e => {setAddres(e.target.value)}} type="text" name="addres" placeholder="Адрес" value={addres}/>
                     </div>
                     <div className="form_item buttons">
-                        <button type="button" onClick={() => {updateProfile(localStorage.getItem("userToken"))}}>Обновить данные</button>
+                        <button type="button" onClick={() => {updateProfile(localStorage.getItem("userToken"), name, middleName, surname, email, addres, phone)}}>Обновить данные</button>
                     </div>
                 </form>
             </div>
