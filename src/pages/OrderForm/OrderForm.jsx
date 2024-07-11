@@ -13,10 +13,9 @@ const OrderForm = ({orderData, setOrderData, isLogged}) => {
     const [surnameDirty, setSurnameDirty] = useState(false)
     const [nameDirty, setNameDirty] = useState(false)
     const [phoneDirty, setPhoneDirty] = useState(false)
-
+    orderData.receiverAddress = {street: " ", house: " ", apartment: " ", comment: " "}
     useEffect(() => {
-        orderData.receiverAddress = {street: " ", house: " ", apartment: " ", comment: " "}
-
+        
         if (localStorage.getItem("userToken")) {
             const session = getSession(localStorage.getItem("userToken"))
             session.then(data => {

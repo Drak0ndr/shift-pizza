@@ -1,4 +1,5 @@
 import { useState } from "react";
+import InputMask from 'react-input-mask';
 import "./DebitCard.css";
 import { sendPayment } from "../../api/sendPayment";
 
@@ -32,7 +33,7 @@ const DebitCard = ({orderData, setOrderData, setModalActive}) => {
 
     const payment = async (data) => {
         const responce = await sendPayment(data)
-
+        console.log(data)
         if (responce.success) {
             setModalActive(true)
         }
@@ -45,16 +46,16 @@ const DebitCard = ({orderData, setOrderData, setModalActive}) => {
                 <div className="card">
                     <div className="form_item">
                         <label htmlFor="number" style={{color: setColor(numberDirty, number)}}>Номер*</label>
-                        <input onBlur={() => {setNumberDirty(true)}} onChange={e => {numberHandler(e)}} type="text" required name="number" placeholder="0000 0000" value={number}/>
+                        <InputMask mask="9999 9999" maskChar="" onBlur={() => {setNumberDirty(true)}} onChange={e => {numberHandler(e)}} type="text" required name="number" placeholder="0000 0000" value={number}/>
                     </div>
                     <div className="secret_data">
                         <div className="form_item">
                             <label htmlFor="validity" style={{color: setColor(validityDirty, validity)}}>Срок*</label>
-                            <input onBlur={() => {setValidityDirty(true)}} onChange={e => {validityHandler(e)}} type="text" name="validity" required placeholder="00/00" value={validity}/>
+                            <InputMask mask="99/99" maskChar="" onBlur={() => {setValidityDirty(true)}} onChange={e => {validityHandler(e)}} type="text" name="validity" required placeholder="00/00" value={validity}/>
                         </div>
                         <div className="form_item">
                             <label htmlFor="cvv" style={{color: setColor(cvvDirty, cvv)}}>CVV*</label>
-                            <input onBlur={() => {setCvvDirty(true)}} onChange={e => {cvvHandler(e)}} type="text" name="cvv" required placeholder="000" value={cvv}/>
+                            <InputMask mask="999" maskChar="" onBlur={() => {setCvvDirty(true)}} onChange={e => {cvvHandler(e)}} type="text" name="cvv" required placeholder="000" value={cvv}/>
                         </div>
                     </div>
                 </div>
