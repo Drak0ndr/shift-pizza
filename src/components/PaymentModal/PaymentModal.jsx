@@ -15,7 +15,7 @@ const PaymentModal = ({active, setActive, orderData}) => (
                     <div className="item">
                         <p className="title">Заказ</p>
                         {orderData.pizzas.map(pizza => (
-                            <p className="description">{getPizzaInfo(pizza)}</p>
+                            <p className="description">{getPizzaInfo(pizza, true)}</p>
                         ))}
                     </div>
                     <div className="item">

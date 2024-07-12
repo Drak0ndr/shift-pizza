@@ -1,5 +1,6 @@
 import { useState } from "react"
 import deleteIco from "./../../img/delete.svg"
+import {getPizzaInfo} from "../../utils/getPizzaInfo"
 import "./PizzaOrder.css"
 
 const PizzaOrder = ({img, title, size, toppings, basketData, setBasketData, id, updateBasket, setModalActive, setModalId}) => {
@@ -27,7 +28,7 @@ const PizzaOrder = ({img, title, size, toppings, basketData, setBasketData, id, 
         <div className="pizza_order">
             <img src={img} alt="" />
             <p className="title">{title}</p>
-            <p className="description"> Средняя 30 см, традиционное тесто + моцарелла, халапеньо</p>
+            <p className="description">{getPizzaInfo(basketData[id])}</p>
             <div className="number">
                 <button onClick={() => {count == 1 ? setCount(1) : setCount(count-1);changeCount(count-1)}}>-</button>
                 <input type="number" min={1} value={count} readOnly className="count" name="pizzaCount"/>

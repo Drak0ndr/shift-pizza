@@ -1,0 +1,26 @@
+export const backendUrl = "https://shift-backend.onrender.com"
+export const translation = {
+    'BACON': 'Бекон',
+    'BASIL': 'Базилик',
+    'CHEDDAR': 'Чеддер',
+    'CHICKEN_FILLET': 'Куриное филе',
+    'CHILE': 'Чили',
+    'FETA': 'Сыр Фета',
+    'GREEN_PEPPER': 'Зеленый перец',
+    'HAM': 'Ветчина',
+    'MEATBALLS': 'Фрикадельки',
+    'MOZZARELLA': 'Моцарелла',
+    'MUSHROOMS': 'Грибы',
+    'ONION': 'Лук',
+    'PEPERONI': 'Пепперони',
+    'PICKLE': 'Соленые огурцы',
+    'PINEAPPLE': 'Ананас',
+    'SHRIMPS': 'Креветки',
+    'TOMATO': 'Помидоры',
+    'PARMESAN': 'Пармезан',
+    'SMALL': 'Маленькая 25 см',
+    'MEDIUM': 'Средняя 30 см',
+    'LARGE': 'Большая 35 см',
+    'THIN': 'Тонкое тесто',
+    'THICK': 'Традиционное тесто'
+}

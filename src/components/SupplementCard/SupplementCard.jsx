@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { backendUrl } from '../consts'
+import { backendUrl, translation } from '../consts'
 import './SupplementCard.css'
 
 const SupplementCard = ({ title, cost, img, cardActive, reset, toggleSupplementActive}) => {
@@ -19,7 +19,7 @@ const SupplementCard = ({ title, cost, img, cardActive, reset, toggleSupplementA
     return(
         <div className={active ? "supplement_card supplement_active" : "supplement_card"} onClick={() => {toggleActive()}}>
             <img src={backendUrl + img} alt="" />
-            <p className="title">{title}</p>
+            <p className="title">{translation[title]}</p>
             <p className="price">{cost} ₽</p>
         </div>
     )
