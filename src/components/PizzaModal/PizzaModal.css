@@ -84,6 +84,7 @@
     text-align: center;
     color: #141c24;
     border-radius: 14px;
+    cursor: pointer;
     
   }
   
@@ -118,6 +119,7 @@
     color: #fff;
     text-align: center;
     border:none;
+    cursor: pointer;
   }
 
   .supplements {
@@ -126,4 +128,8 @@
     flex-wrap: wrap;
     column-gap: 11px;
     row-gap: 11px;
+  }
+
+  .pizza_modal .button:hover {
+    background-color: #e0491a;
   }

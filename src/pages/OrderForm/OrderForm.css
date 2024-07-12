@@ -44,9 +44,14 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 150%;
+    cursor: pointer;
 }
 
 .Order_form .continue:disabled {
+    background-color:#c58d7c;
+}
+
+.Order_form .continue:disabled:hover {
     background-color:#c58d7c;
 }
 
@@ -59,4 +64,8 @@
 .Order_form .back {
     border: 1px solid #ced2da;
     background-color: white;
+}
+
+.Order_form .continue:hover {
+    background-color: #e0491a;
 }

@@ -22,4 +22,9 @@
     width: 328px;
     height: 56px;
     background: #f4511e;
+    cursor: pointer;
+}
+
+.basket button:hover {
+    background-color: #e0491a;
 }

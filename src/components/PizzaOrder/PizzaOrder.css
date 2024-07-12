@@ -45,6 +45,10 @@
     border-radius: 0;
 }
 
+.pizza_order .number button:hover {
+    background: #d5d7d9;
+}
+
 .pizza_order .number .count {
     text-align: center;
     background: #f3f4f6;

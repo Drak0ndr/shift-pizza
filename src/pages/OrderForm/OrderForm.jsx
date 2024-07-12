@@ -114,7 +114,9 @@ const OrderForm = ({orderData, setOrderData}) => {
                         <input onChange={e => {addresHandler(e)}} type="text" name="addres" placeholder="Адрес" value={addres}/>
                     </div>
                     <div className="form_item buttons">
-                        <button className="back">Назад</button>
+                        <NavLink to="/basket">
+                            <button className="back" type="button">Назад</button>
+                        </NavLink>    
                         <NavLink to={"/debitCard"}>
                             <button className="continue" type="button" disabled={surname=="" || name=="" || phone==""}  onClick={() => {setOrderData(orderData); console.log(orderData)}}>Продолжить</button>
                         </NavLink>

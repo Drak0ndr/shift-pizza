@@ -35,4 +35,9 @@
     line-height: 150%;
     color: #fff;
     border: none;
+    cursor: pointer;
+}
+
+.profile button:hover {
+    background-color: #e0491a;
 }

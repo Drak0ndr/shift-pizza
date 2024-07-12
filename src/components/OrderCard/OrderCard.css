@@ -30,8 +30,12 @@
     border: none;
     width: 328px;
     margin-top: 24px;
+    cursor: pointer;
 }
 
+.order_card button:hover {
+    background-color: #e0491a;
+}
 .order_card .label {
     width: 8px;
     height: 8px;

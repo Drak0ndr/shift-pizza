@@ -49,8 +49,12 @@
     width: 381px;
     border:none;
     margin-top: 24px;
+    cursor: pointer;
 }
 
+.debit_card button:hover {
+    background-color: #e0491a;
+}
 .debit_card button[disabled] {
     background: #c58d7c;
 }

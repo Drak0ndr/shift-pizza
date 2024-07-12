@@ -6,7 +6,7 @@ const PizzaEditModal = ({ active, setActive, basketData, setBasketData, id, upda
     const [data, setData] = useState({allToppings:[], toppings:[]})
     const [activeSize, setActiveSize] = useState(0)
     const [activeSupplements, setActiveSupplements] = useState(data.toppings)
-
+    console.log(basketData, activeSize, id < basketData.length && basketData[id].size.name == 'LARGE')
     const isSupplementActive = (name) => {
         for (let item of activeSupplements) {
             if (name == item.name) {
@@ -31,10 +31,11 @@ const PizzaEditModal = ({ active, setActive, basketData, setBasketData, id, upda
         if (basketData.length > id) {
             setData(basketData[id])
             setActiveSupplements(basketData[id].toppings)
+            setActiveSize(basketData[id].size.name == 'LARGE' ? 2 : basketData[id].size.name == 'MEDIUM' ? 1 : 0)
         } else {
             setActiveSupplements(data.toppings)
         }
-    })
+    },[active])
 
     return (
         <div className={active ? "pizza_modal_bg active" : "pizza_modal_bg"} onClick={() => {setActive(false);setActiveSupplements([]);setActiveSize(0); updateBasket()}}>
