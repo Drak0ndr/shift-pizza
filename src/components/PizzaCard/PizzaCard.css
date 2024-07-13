@@ -48,4 +48,9 @@ main .pizza_card {
     line-height: 150%;
     color: #fff;
     border:none;
+    cursor: pointer;
+  }
+
+  .pizza_card .button:hover {
+    background-color: #e0491a;
   }

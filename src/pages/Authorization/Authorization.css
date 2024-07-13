@@ -1,0 +1,41 @@
+.authorization .title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 133%;
+    color: #141c24;
+}
+
+.authorization .description {
+    font-size: 16px;
+    line-height: 150%;
+    color: #141c24;
+    margin: 24px 0 0 0;
+}
+
+.authorization input {
+    border: 1px solid #ced2da;
+    border-radius: 8px;
+    padding: 12px 8px 12px 12px;
+    width: 464px;
+    font-size: 16px;
+    line-height: 150%;
+    display: block;
+    margin-top: 24px;
+}
+
+.authorization button {
+    border-radius: 16px;
+    padding: 16px 32px;
+    width: 328px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #fff;
+    background: #f4511e;
+    border:none;
+    margin-top: 40px;
+}
+
+.authorization .hidden {
+    display: none;
+}

@@ -1,0 +1,60 @@
+.debit_card {
+    margin-top: 48px;
+}
+
+.debit_card p {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 133%;
+    color: #141c24;
+}
+
+.debit_card .card {
+    border-radius: 16px;
+    padding: 24px;
+    background-color: #f3f4f6;
+    width: 381px;
+}
+
+.debit_card input {
+    display: block;
+    font-size: 16px;
+    line-height: 150%;
+    border: 1px solid #ced2da;
+    border-radius: 8px;
+    padding: 12px 8px 12px 12px;
+    width: 154px;
+    margin-top: 6px;
+    color: #141c24;
+}
+
+.debit_card input[name="number"] {
+    width: 100%;
+}
+
+.debit_card .secret_data {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+.debit_card button {
+    border-radius: 16px;
+    padding: 16px 32px;
+    background: #f4511e;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #fff;
+    width: 381px;
+    border:none;
+    margin-top: 24px;
+    cursor: pointer;
+}
+
+.debit_card button:hover {
+    background-color: #e0491a;
+}
+.debit_card button[disabled] {
+    background: #c58d7c;
+}

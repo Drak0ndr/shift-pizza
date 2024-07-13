@@ -4,7 +4,9 @@
     box-shadow: 0 4px 12px 0 rgba(26, 26, 30, 0.15);
     height: 192px;
   }
-  
+.supplement_active {
+  background-color:lightsalmon;
+}
   .pizza_modal .supplement_card img {
     width: 108px;
     height: 108px;

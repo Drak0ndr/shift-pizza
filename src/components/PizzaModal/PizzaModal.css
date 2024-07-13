@@ -45,6 +45,7 @@
   }
   .pizza_modal .order {
     width: 426px;
+    display: block;
   
   }
   .pizza_modal .title {
@@ -61,7 +62,7 @@
     color: #535353;
   }
   
-  .pizza_modal .compaund {
+  .pizza_modal .order .compaund {
     font-size: 16px;
     line-height: 150%;
     color: #535353;
@@ -83,6 +84,7 @@
     text-align: center;
     color: #141c24;
     border-radius: 14px;
+    cursor: pointer;
     
   }
   
@@ -117,6 +119,7 @@
     color: #fff;
     text-align: center;
     border:none;
+    cursor: pointer;
   }
 
   .supplements {
@@ -125,4 +128,8 @@
     flex-wrap: wrap;
     column-gap: 11px;
     row-gap: 11px;
+  }
+
+  .pizza_modal .button:hover {
+    background-color: #e0491a;
   }

@@ -1,0 +1,82 @@
+.payment_modal_bg {
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    display: none;
+    justify-content: center;
+    align-items:center;
+  }
+
+  .payment_modal_bg.active{
+    display: flex;
+  }
+
+  .payment_modal {
+    width: 500px;
+    height: 562px;
+    background-color:white;
+    border-radius: 10px;
+    position: relative;
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+
+  .payment_modal .close {
+    height: 24px;
+    width: 24px;
+    background-image:url("./../../img/close.svg");
+    position: absolute;
+    top:16px;
+    right: 24px;
+  }
+
+  .payment_modal .content {
+    padding: 24px 64px;
+    margin-top: 40px;
+  }
+
+  .payment_modal img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .payment_modal .status {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 133%;
+    text-align: center;
+    color: #141c24;
+  }
+
+  .payment_modal .item .title {
+    font-size: 12px;
+    line-height: 133%;
+    color: #637083;
+    margin-bottom: 2px;
+  }
+
+  .payment_modal .item .description {
+    font-size: 16px;
+    line-height: 150%;
+    color: #141c24;
+    margin: 0;
+  }
+
+  .payment_modal .message {
+    font-size: 14px;
+    line-height: 143%;
+    color: #97a1af;
+  }
+
+  .payment_modal .back {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: #344051;
+    text-align: center;
+  }

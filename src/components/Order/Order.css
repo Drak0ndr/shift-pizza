@@ -1,0 +1,49 @@
+.оrder {
+    display: flex;
+    align-items: start;
+    column-gap: 24px;
+    border-top: 1px solid #e3e5e5;
+    padding: 24px 0;
+}
+
+.оrder .item {
+    font-size: 16px;
+    line-height: 150%;
+    color: #141c24;
+    display: flex;
+}
+.оrder .success {
+    background-color: #40bf7f;
+}
+.оrder .cancel {
+    background-color: #f64c4c;
+}
+.оrder .pending {
+    background-color: #ffb219;
+}
+.оrder .label {
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    margin-right: 12px;
+}
+
+.оrder .status {
+    width: 220px;
+    align-items: center;
+}
+
+.оrder .addres {
+    width: 300px;
+}
+
+.оrder .compaund {
+    width: 160px;
+}
+
+.оrder .details {
+    font-size: 12px;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: #97a1af;
+}
