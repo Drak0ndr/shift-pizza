@@ -9,7 +9,7 @@ const Orders = () => {
     useEffect(() => {
         const responce = getOrders(localStorage.getItem("userToken"))
         responce.then(data => {
-            setOrders(data.orders)
+            setOrders(data.orders ? data.orders : [])
             console.log(data)
         })
     },[])

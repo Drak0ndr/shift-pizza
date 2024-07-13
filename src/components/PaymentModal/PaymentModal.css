@@ -20,6 +20,8 @@
     background-color:white;
     border-radius: 10px;
     position: relative;
+    overflow-y: auto;
+    scrollbar-width: thin;
   }
 
   .payment_modal .close {

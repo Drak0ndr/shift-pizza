@@ -16,7 +16,7 @@ const App = () => {
 	const [modalActive, setModalActive] = useState(false)
 	const [modalData, setModalData] = useState({ toppings: [] })
 	const [basketData, setBasketData] = useState([])
-	const [orderData, setOrderData] = useState({receiverAddress: {}, person: {}, debitCard:{}, pizzas: []})
+	const [orderData, setOrderData] = useState({receiverAddress: {comment: " "}, person: {}, debitCard:{}, pizzas: []})
 	const [paymentModalActive, setPaymentModalActive] = useState(false)
 	const [isLogged, setIsLogged] = useState(localStorage.getItem("userToken") ? true : false)
 

@@ -13,7 +13,7 @@ const OrderForm = ({orderData, setOrderData}) => {
     const [surnameDirty, setSurnameDirty] = useState(false)
     const [nameDirty, setNameDirty] = useState(false)
     const [phoneDirty, setPhoneDirty] = useState(false)
-    orderData.receiverAddress = {street: " ", house: " ", apartment: " ", comment: " "}
+    // orderData.receiverAddress = {street: " ", house: " ", apartment: " ", comment: " "}
     useEffect(() => {
         
         if (localStorage.getItem("userToken")) {
@@ -42,11 +42,33 @@ const OrderForm = ({orderData, setOrderData}) => {
                         temp+=','
                     }
                     temp = temp.split(',')
-                    orderData.receiverAddress.street = temp[1].replace("ул.", "")
-                    orderData.receiverAddress.house = temp[2].replace("д.", "")
-                    orderData.receiverAddress.apartment = temp[3].replace("кв.", "")
+                    if (temp[1].length == 0) {
+                        orderData.receiverAddress.street = " "
+                    } else {
+                        orderData.receiverAddress.street = temp[1].replace("ул.", "").trim()
+                    }
+                    if (temp[2].length == 0) {
+                        orderData.receiverAddress.house = " "
+                    } else {
+                        orderData.receiverAddress.house = temp[2].replace("д.", "").trim()
+                    }
+                    if (temp[3].length == 0) {
+                        orderData.receiverAddress.apartment = " "
+                    } else {
+                        orderData.receiverAddress.apartment = temp[3].replace("кв.", "").trim()
+                    }
+                    
+                    console.log(orderData, data, temp)
+                } else {
+                    orderData.receiverAddress.street = " "
+                    orderData.receiverAddress.house = " "
+                    orderData.receiverAddress.apartment = " "
                 }
             })
+        } else {
+            orderData.receiverAddress.street = " "
+            orderData.receiverAddress.house = " "
+            orderData.receiverAddress.apartment = " "
         }
         
     },[])

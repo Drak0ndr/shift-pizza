@@ -1,8 +1,9 @@
 import { useState } from "react"
-import "./Authorization.css"
 import { sendOtp } from "../../api/sendOtp"
 import { authorization } from "../../api/authorization"
 import { useNavigate } from "react-router-dom"
+import ReactInputMask from "react-input-mask"
+import "./Authorization.css"
 
 const Authorization = ({login}) => {
     const [phone, setPhone] = useState("")
@@ -20,7 +21,7 @@ const Authorization = ({login}) => {
 
     const auth = async () => {
         
-        const responce = await authorization(phone, otp)
+        const responce = await authorization(phone.replaceAll(" ", ""), otp)
 
         if (responce.success) {
             login(responce.token)
@@ -33,9 +34,9 @@ const Authorization = ({login}) => {
             <div className="container">
                 <p className="title">Авторизация</p>
                 <p className="description">Введите номер телефона для входа в личный кабинет</p>
-                <input onChange={(e) => {phoneHandler(e)}} type="tel" name="phone" id="" placeholder="Телефон" value={phone}/>
+                <ReactInputMask mask="9 999 999 99 99" maskChar="" onChange={(e) => {phoneHandler(e)}} type="tel" name="phone" id="" placeholder="Телефон" value={phone}/>
                 <input className={haveOtp ? "" : "hidden"} onChange={(e) => {optHandler(e)}} type="text" name="phone" id="" placeholder="Проверочный код" value={otp}/>
-                <button onClick={() => {haveOtp ? auth() : sendOtp(phone).then(responce => {console.log(responce); responce.success ? setHaveOtp(true): setHaveOtp(false)})}}>{haveOtp ? "Войти" : "Продолжить"}</button>
+                <button onClick={() => {haveOtp ? auth() : sendOtp(phone.replaceAll(" ", "")).then(responce => {console.log(responce); responce.success ? setHaveOtp(true): setHaveOtp(false)})}}>{haveOtp ? "Войти" : "Продолжить"}</button>
             </div>
         </div>
     )

@@ -10,5 +10,6 @@ export const updateProfile = async (token, name, middleName, surname, email, add
         }
     ).then((responce) => responce.json())
 
+    console.log(responce)
     return responce
 }
